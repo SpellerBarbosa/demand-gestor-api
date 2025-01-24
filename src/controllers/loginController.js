@@ -1,5 +1,5 @@
 import User from '../schema/userSchema.js';
-import { comparePassword } from '..//utils/passwordUtils.js';
+import { comparePassword } from '../utils/passwordUtils.js';
 
 
 const loginController =  async (req, res) =>{

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
-export const ConnecToDB = await mongoose.connect(process.env.URI, {
+export const ConnectToDB = await mongoose.connect(process.env.URI, {
     dbName: 'demandDB',
     serverSelectionTimeoutMS: 3000,
 })
