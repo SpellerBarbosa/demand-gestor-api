@@ -11,11 +11,8 @@ export const comparePassword = async (password, hashPassword) =>{
     const isMatch = await bcrypt.compare(password, hashPassword);
 
     if(!isMatch){
-        console.log('Senha inválida');
         return false;
     }
-
-    console.log('Login bem sucedido');
     return true;
 
 }

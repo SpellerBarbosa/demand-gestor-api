@@ -1,5 +1,8 @@
 import User from '../schema/userSchema.js';
 import { comparePassword } from '../utils/passwordUtils.js';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const loginController =  async (req, res) =>{
@@ -11,15 +14,27 @@ const loginController =  async (req, res) =>{
 
     try {
         
-        const userExist = await User.findOne({user});
-
+        const userExist = await User.findOne({userName: user});
+        
         if(!userExist) return res.status(400).json({msg: 'Usuario não cadastrado.'});
 
-        const isMatch = await comparePassword(password, userExist.userPassword);
-
+        const isMatch = await comparePassword(password, userExist.password);
+     
         if(!isMatch) return res.status(400).json({msg: 'Senha inválida.'});
 
-        return res.status(200).json({msg: 'Login efetuado com sucesso.'});
+        
+        const userResponse = userExist.toObject();
+        delete userResponse.password
+        const token = jwt.sign({
+            id:userResponse.userId, 
+            user: userResponse.userName, 
+            sector: userResponse.sector,
+            role: userResponse.role
+        }, 
+        process.env.SECRET, 
+        {expiresIn: '1'});
+
+        return res.status(200).json({msg: 'Login efetuado com sucesso.', token: token});
     
     } catch (error) {
 
