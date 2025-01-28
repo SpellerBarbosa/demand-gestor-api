@@ -6,7 +6,7 @@ const signupController = async (req, res) =>{
 
     if(!user) return res.status(400).json({msg: 'Digite o nome de usuario'});
 
-    if(!password) return res.status(400).json({msg: 'Digite sua senha'});
+    if(!password) return res.status(400).json({msg: 'Digite a senha do usuario'});
 
     if(!sector) return res.status(400).json({msg: 'Selecione o setor '});
 
