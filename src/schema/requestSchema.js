@@ -20,6 +20,11 @@ const requestSchema =  new mongoose.Schema({
         type: String,
         required: true,
     },
+    status:{
+        type: String,
+        required: true,
+        default: 'pendente',
+    },
     userId:{
         type: String,
         required: true,

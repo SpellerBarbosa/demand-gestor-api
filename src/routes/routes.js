@@ -4,6 +4,7 @@ import indexController from '../controllers/indexController.js';
 import signupController from '../controllers/signupController.js';
 import secureController from '../controllers/secureController.js';
 import requestController from '../controllers/requestController.js';
+import requestsController from '../controllers/requestsController.js';
 
 const router =  Router();
 
@@ -16,5 +17,7 @@ router.post('/api/login', loginController);
 router.post('/api/signup', signupController);
 
 router.post('/api/request', requestController);
+
+router.get('/api/requests', requestsController);
 
 export default router;
