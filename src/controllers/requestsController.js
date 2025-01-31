@@ -7,8 +7,13 @@ const requestsController = async (req, res) =>{
                 $lookup:{
                     from: 'users',
                     localField: 'userId',
-                    foreignField: 'userId',
-                    as: 'requests'
+                    foreignField: '_id',
+                    as: 'usuario'
+                }
+            }
+            ,{
+                $unwind:{
+                    path:'$usuario',
                 }
             }
         ])

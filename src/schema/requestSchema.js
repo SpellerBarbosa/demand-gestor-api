@@ -26,7 +26,8 @@ const requestSchema =  new mongoose.Schema({
         default: 'pendente',
     },
     userId:{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId, // transfornando o user id em objeto para acessar os dados do usuario
+        ref: 'User', // referenciando a colection users
         required: true,
     }
 });

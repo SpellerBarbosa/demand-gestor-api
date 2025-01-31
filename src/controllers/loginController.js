@@ -26,7 +26,7 @@ const loginController =  async (req, res) =>{
         const userResponse = userExist.toObject();
         delete userResponse.password
         const token = jwt.sign({
-            id:userResponse.userId, 
+            id:userResponse._id, 
             user: userResponse.userName, 
             sector: userResponse.sector,
             role: userResponse.role
