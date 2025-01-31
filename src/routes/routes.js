@@ -20,4 +20,6 @@ router.post('/api/request', requestController);
 
 router.get('/api/requests', requestsController);
 
+router.patch('/api/schedule')
+
 export default router;

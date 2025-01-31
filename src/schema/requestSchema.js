@@ -23,7 +23,7 @@ const requestSchema =  new mongoose.Schema({
     status:{
         type: String,
         required: true,
-        default: 'pendente',
+        default: 'aguardando',
     },
     userId:{
         type: mongoose.Schema.Types.ObjectId, // transfornando o user id em objeto para acessar os dados do usuario
