@@ -12,6 +12,12 @@ const requestSchema =  new mongoose.Schema({
         type: String,
         required: true,
     },
+    date_planned:{
+        type:String
+    },
+    date_delivered:{
+        type:String
+    },
     type_service:{
         type: String,
         required: true,

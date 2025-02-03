@@ -5,6 +5,7 @@ import signupController from '../controllers/signupController.js';
 import secureController from '../controllers/secureController.js';
 import requestController from '../controllers/requestController.js';
 import requestsController from '../controllers/requestsController.js';
+import scheduleController from '../controllers/scheduleController.js';
 
 const router =  Router();
 
@@ -20,6 +21,6 @@ router.post('/api/request', requestController);
 
 router.get('/api/requests', requestsController);
 
-router.patch('/api/schedule')
+router.put('/api/schedule', scheduleController);
 
 export default router;
