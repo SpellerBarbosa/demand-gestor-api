@@ -32,7 +32,7 @@ const loginController =  async (req, res) =>{
             role: userResponse.role
         }, 
         process.env.SECRET, 
-        {expiresIn: '1'});
+        {expiresIn: '1h'});
 
         return res.status(200).json({msg: 'Login efetuado com sucesso.', token: token});
     

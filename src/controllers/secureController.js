@@ -13,7 +13,7 @@ const secureController = async (req, res) =>{
 
         const token = authHeader.split(" ")[1];
         
-        const decoded = jwt.decode(token, process.env.SECRET)
+        const decoded = jwt.verify(token, process.env.SECRET)
 
         return res.status(200).json({ token: decoded });
 
